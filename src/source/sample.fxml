@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TabPane layoutY="-1.0" prefHeight="433.0" prefWidth="644.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Mailing Lists">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="324.0" prefWidth="600.0">
+                     <children>
+                        <TableView fx:id="MailingListTab" prefHeight="357.0" prefWidth="644.0">
+                          <columns>
+                            <TableColumn fx:id="IDColumn" prefWidth="51.0" text="ID" />
+                            <TableColumn fx:id="nameColumn" prefWidth="118.0" text="Name" />
+                              <TableColumn fx:id="descriptionColumn" prefWidth="218.0" text="Description" />
+                              <TableColumn fx:id="usersColumn" prefWidth="256.0" text="Users" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="574.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleRefresh1" text="Refresh" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Users">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="UsersTab" prefHeight="356.0" prefWidth="644.0">
+                          <columns>
+                            <TableColumn fx:id="UserIdCol" prefWidth="199.0" text="ID" />
+                            <TableColumn fx:id="UserLoginCol" prefWidth="191.0" text="Login" />
+                              <TableColumn fx:id="UserNameCol" prefWidth="253.0" text="Name" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="574.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleRefresh2" text="Refresh" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Add/Delete/Change mailing list">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="401.0" prefWidth="644.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="306.0" layoutY="14.0" text="ADD">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="AddMailingListId" layoutX="14.0" layoutY="70.0" prefHeight="25.0" prefWidth="57.0" />
+                        <TextField fx:id="AddMailingListName" layoutX="79.0" layoutY="70.0" prefHeight="25.0" prefWidth="98.0" />
+                        <TextField fx:id="AddMailingListDescription" layoutX="186.0" layoutY="70.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextField fx:id="AddMailingListUsers" layoutX="344.0" layoutY="70.0" prefHeight="25.0" prefWidth="203.0" />
+                        <Label alignment="CENTER" layoutX="37.0" layoutY="48.0" text="ID" />
+                        <Label alignment="CENTER" layoutX="112.0" layoutY="48.0" text="Name" />
+                        <Label layoutX="230.0" layoutY="48.0" text="Description" />
+                        <Label layoutX="431.0" layoutY="320.0" text="Users" />
+                        <Button layoutX="561.0" layoutY="70.0" mnemonicParsing="false" onAction="#AddMailingList" text="Add" />
+                        <Separator layoutX="-62.0" layoutY="268.0" prefHeight="0.0" prefWidth="758.0" />
+                        <Label layoutX="295.0" layoutY="132.0" text="DELETE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="DeleteMailingListId" layoutX="243.0" layoutY="185.0" />
+                        <Separator layoutX="-29.0" layoutY="122.0" prefHeight="3.0" prefWidth="693.0" />
+                        <Label layoutX="177.0" layoutY="187.0" text="Enter ID:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="406.0" layoutY="185.0" mnemonicParsing="false" onAction="#DeleteMailingListOnId" text="Delete" />
+                        <Label layoutX="294.0" layoutY="285.0" text="CHANGE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="15.0" layoutY="318.0" text="Enter ID:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ChangeListId" layoutX="19.0" layoutY="352.0" prefHeight="25.0" prefWidth="47.0" />
+                        <TextField fx:id="ChangeListName" layoutX="74.0" layoutY="352.0" prefHeight="25.0" prefWidth="102.0" />
+                        <TextField fx:id="ChangeListDescription" layoutX="186.0" layoutY="352.0" />
+                        <TextField fx:id="ChangeListUsers" layoutX="344.0" layoutY="352.0" prefHeight="25.0" prefWidth="215.0" />
+                        <Button layoutX="573.0" layoutY="352.0" mnemonicParsing="false" onAction="#ChangeMailingListOnId" text="Change" />
+                        <Label alignment="CENTER" layoutX="112.0" layoutY="320.0" text="Name" />
+                        <Label layoutX="230.0" layoutY="320.0" text="Description" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Add/Delete/Change users">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="395.0" prefWidth="644.0">
+                     <children>
+                        <Button layoutX="406.0" layoutY="185.0" mnemonicParsing="false" onAction="#DeleteUserOnId" text="Delete" />
+                        <Label layoutX="294.0" layoutY="285.0" text="CHANGE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="-11.0" layoutY="122.0" prefHeight="3.0" prefWidth="693.0" />
+                        <TextField fx:id="DeleteId" layoutX="243.0" layoutY="185.0" />
+                        <Label layoutX="295.0" layoutY="132.0" text="DELETE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="-96.0" layoutY="268.0" prefHeight="0.0" prefWidth="758.0" />
+                        <Button layoutX="561.0" layoutY="70.0" mnemonicParsing="false" onAction="#AddUser" text="Add" />
+                        <Label layoutX="432.0" layoutY="48.0" text="Name" />
+                        <Label alignment="CENTER" layoutX="196.0" layoutY="48.0" text="Login" />
+                        <Label alignment="CENTER" layoutX="37.0" layoutY="48.0" text="ID" />
+                        <TextField fx:id="AddUserName" layoutX="349.0" layoutY="70.0" prefHeight="25.0" prefWidth="198.0" />
+                        <TextField fx:id="AddUserLogin" layoutX="79.0" layoutY="70.0" prefHeight="25.0" prefWidth="263.0" />
+                        <TextField fx:id="AddUserId" layoutX="14.0" layoutY="70.0" prefHeight="25.0" prefWidth="57.0" />
+                        <Label alignment="CENTER" layoutX="306.0" layoutY="14.0" text="ADD">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="177.0" layoutY="187.0" text="Enter ID:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="441.0" layoutY="320.0" text="Name" />
+                        <Label alignment="CENTER" layoutX="196.0" layoutY="320.0" text="Login" />
+                        <Button layoutX="573.0" layoutY="352.0" mnemonicParsing="false" onAction="#ChangeUserOnId" text="Change" />
+                        <TextField fx:id="ChangeUserName" layoutX="335.0" layoutY="352.0" prefHeight="25.0" prefWidth="223.0" />
+                        <TextField fx:id="ChangeUserLogin" layoutX="74.0" layoutY="352.0" prefHeight="25.0" prefWidth="252.0" />
+                        <TextField fx:id="ChangeUserId" layoutX="19.0" layoutY="352.0" prefHeight="25.0" prefWidth="47.0" />
+                        <Label layoutX="15.0" layoutY="318.0" text="Enter ID:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Candidates">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="CandidatesTab" layoutX="-1.0" prefHeight="357.0" prefWidth="651.0">
+                          <columns>
+                            <TableColumn fx:id="CandidatesID" prefWidth="65.0" text="ID" />
+                            <TableColumn fx:id="CandidatesName" prefWidth="167.0" text="Name" />
+                              <TableColumn fx:id="CandidatesDescription" prefWidth="157.0" text="Description" />
+                              <TableColumn fx:id="CandidatesUsers" prefWidth="256.0" text="Users" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="535.0" layoutY="365.0" mnemonicParsing="false" onAction="#handleCandidates" text="Get candidates" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Subscribes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="SubscribeTab" layoutY="88.0" prefHeight="265.0" prefWidth="644.0">
+                          <columns>
+                            <TableColumn fx:id="SubscribesID" prefWidth="59.0" text="ID" />
+                            <TableColumn fx:id="SubscribesLogin" prefWidth="157.0" text="Login" />
+                              <TableColumn fx:id="SubscribesName" prefWidth="197.0" text="Name" />
+                              <TableColumn fx:id="SubscribesListName" minWidth="0.0" prefWidth="230.0" text="Subscribes" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="537.0" layoutY="365.0" mnemonicParsing="false" onAction="#getSubscribes" text="Get subscribes" />
+                        <Label layoutX="62.0" layoutY="36.0" text="Enter ID:">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="SubscribesUserId" layoutX="161.0" layoutY="39.0" prefHeight="25.0" prefWidth="450.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
